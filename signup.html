@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/snackbar.css">
+</head>
+
+<body>
+        <div class="login-container">
+            <div class="login-box">
+                <div class="logo"></div>
+
+                <img src="images/logo.png" alt="Avatar" class="avatar">
+                <h1>Welcome</h1>
+                <p>Please enter your details to sign up</p>
+
+                <form id="signupForm">
+                    <input type="text" id="nameField" placeholder="Full Name" required>
+                    <input type="text" id="idField" placeholder="Email / Phone number / ID" required>
+                    <div id="password-field">
+                        <input type="password" id="pwd" placeholder="Password" required>
+                        <img src="images/eye.png" id="eyeIcon" class="eye-icon">
+
+                    </div>
+
+                    <div class="option-row">
+                    </div>
+                    <button type="submit">Sign up</button>
+            </div>
+
+
+            </form>
+            <p class="create-account">Already have an account? <a href="login.html">Log In</a></p>
+
+        </div>
+        
+    </div>
+    <div id="snackbar">test</div>
+
+    <script type="module" src="js/signup.js"></script>
+</body>
+
+</html>

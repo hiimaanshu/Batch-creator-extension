@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RD Data Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>RD Data Management</h1>
+
+        <div class="controls">
+            <div id="searchSection">
+                <select id="batchFilter">
+                    <option value="">All Batches</option>
+                </select>
+                <select id="filterSelect">
+                    <option value="">Filter by...</option>
+                    <option value="id">ID</option>
+                    <option value="batchNumber">Batch Number</option>
+                    <option value="rdAmount">RD Amount</option>
+                </select>
+                <input type="text" id="searchInput" placeholder="Search...">
+            </div>
+
+            <button id="addAccountBtn" class="action-btn add-btn">Add New Account</button>
+        </div>
+
+        <table id="searchTableContent">
+            <tbody>
+                <!-- Table rows will be dynamically inserted here -->
+
+            </tbody>
+        </table>
+
+        <div id='summary'>
+            <div class='total'>
+                <p>Total Accounts :</p>
+                <p id='totalAccounts'></p>
+            </div>
+
+            <h4 id="notFound">No match found.</h4>
+
+            <div class='total'>
+                <p>Total Amount :</p>
+                <p id='totalAmount'></p>
+            </div>
+
+        </div>
+
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="select-all"></th>
+                    <th data-sort="name">Name <i class="fas fa-sort"></i></th>
+                    <th data-sort="accountNumber" class="center-align">Account Number <i class="fas fa-sort"></i></th>
+                    <th data-sort="rdAmount" class="center-align">RD Amount <i class="fas fa-sort"></i></th>
+                    <th data-sort="date">Date <i class="fas fa-sort"></i></th>
+                    <th data-sort="batchNumber" class="center-align">Batch Number <i class="fas fa-sort"></i></th>
+                    <th data-sort="id">ID <i class="fas fa-sort"></i></th>
+                    <th data-sort="actions" class="center-align">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Table rows will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="background" id="background"></div>
+    <div class="alert_box" id="alertBox">
+        <div class="icon">
+            <i class="fas fa-exclamation"></i>
+        </div>
+        <header>Confirm</header>
+        <p>Are you sure want to permanently delete this Account?</p>
+        <div class="btns">
+            <button id="deleteButton">Yes, Delete!</button>
+            <button id="cancelButton">Cancel</button>
+        </div>
+    </div>
+
+    <div id="editModal" class="modal">
+
+        <div class="modal-content">
+            <h2>Edit Account</h2>
+            <h5 id="notice">Multiple accounts are selected.
+            </h5>
+            <form id="editForm">
+                <div class="form-group">
+                    <label for="editName">Name:</label>
+                    <input type="text" id="editName" required>
+                </div>
+                <div class="form-group">
+                    <label for="editAccountNumber">Account Number:</label>
+                    <input type="text" pattern="\d*" id="editAccountNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="editRdAmount">RD Amount:</label>
+                    <input type="number" id="editRdAmount" required>
+                </div>
+                <div class="form-group">
+                    <label for="editDate">Submission Date:</label>
+                    <select id="editDate" required>
+                        <option value="Before 15">Before 15</option>
+                        <option value="Before 31">Before 31</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="editBatchNumber">Batch Number:</label>
+                    <select id="editBatchNumber" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="editId">ID:</label>
+                    <input type="number" id="editId" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="button" class="btn btn-primary-all" id="updateAll">Update all</button>
+                    <button type="button" id="cancelEdit" class="btn btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <h2>Add New Account</h2>
+            <form id="addForm">
+                <div class="form-group">
+                    <label for="addName">Name:</label>
+                    <input type="text" id="addName" required>
+                </div>
+                <div class="form-group">
+                    <label for="addAccountNumber">Account Number:</label>
+                    <input type="text" id="addAccountNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="addRdAmount">RD Amount:</label>
+                    <input type="number" id="addRdAmount" required>
+                </div>
+                <div class="form-group">
+                    <label for="addDate">Submission Date:</label>
+                    <select id="addDate" required>
+                        <option value="Before 15">Before 15</option>
+                        <option value="Before 31">Before 31</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="addBatchNumber">Batch Number:</label>
+                    <select id="addBatchNumber" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="addId">ID:</label>
+                    <input type="number" id="addId" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Add Account</button>
+                    <button type="button" id="cancelAdd" class="btn btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="overlay" id="overlay">
+        <div class="loader" id="loader"></div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

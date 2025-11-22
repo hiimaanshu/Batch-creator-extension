@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Webpage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+        }
+
+        .side-menu {
+            width: 25%;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .side-menu button {
+            background: #444;
+            border: none;
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: left;
+        }
+
+        .side-menu button:hover {
+            background: #555;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            margin-top: 20px;
+        }
+
+        th {
+            text-align: left;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+
+        tr {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        td {
+            padding: 15px;
+            vertical-align: middle;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .status .online {
+            width: 10px;
+            height: 10px;
+            background-color: green;
+            border-radius: 50%;
+        }
+
+        .status .offline {
+            width: 10px;
+            height: 10px;
+            background-color: gray;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="side-menu">
+        <button onclick="showContent('show-data')">Show Data</button>
+        <button onclick="showContent('option2')">Option 2</button>
+        <button onclick="showContent('option3')">Option 3</button>
+        <button onclick="showContent('option4')">Option 4</button>
+    </div>
+    <div class="content">
+        <div id="show-data">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Customer Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Wade Warren</td>
+                        <td>wade@acme.com</td>
+                        <td>(+33)6 55 52 72 55</td>
+                        <td>Financial District, New York</td>
+                        <td class="status"><span class="online"></span>Online</td>
+                    </tr>
+                    <tr>
+                        <td>Marvin McKinney</td>
+                        <td>marvin@acme.com</td>
+                        <td>(+33)6 55 59 32 88</td>
+                        <td>Northeast, Washington D.C.</td>
+                        <td class="status"><span class="offline"></span>Offline</td>
+                    </tr>
+                    <tr>
+                        <td>Floyd Miles</td>
+                        <td>miles@acme.com</td>
+                        <td>(+33)6 55 51 05 09</td>
+                        <td>Chinatown, New York</td>
+                        <td class="status"><span class="online"></span>Online</td>
+                    </tr>
+                    <tr>
+                        <td>Jacob Jones</td>
+                        <td>jacob@acme.com</td>
+                        <td>(+33)6 55 53 19 16</td>
+                        <td>Hell's Kitchen, New York</td>
+                        <td class="status"><span class="offline"></span>Offline</td>
+                    </tr>
+                    <tr>
+                        <td>Courtney Henry</td>
+                        <td>henry@acme.com</td>
+                        <td>(+33)7 45 55 87 71</td>
+                        <td>Upper West Side, New York</td>
+                        <td class="status"><span class="offline"></span>Offline</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Cooper</td>
+                        <td>cooper@acme.com</td>
+                        <td>(+33)6 55 51 30 35</td>
+                        <td>East Village, New York</td>
+                        <td class="status"><span class="online"></span>Online</td>
+                    </tr>
+                    <tr>
+                        <td>Savannah Nguyen</td>
+                        <td>savanah@acme.com</td>
+                        <td>(+33)7 35 5 46 14</td>
+                        <td>Bowery, New York</td>
+                        <td class="status"><span class="offline"></span>Offline</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="option2" class="hidden">Content for Option 2</div>
+        <div id="option3" class="hidden">Content for Option 3</div>
+        <div id="option4" class="hidden">Content for Option 4</div>
+    </div>
+
+    <script>
+        function showContent(optionId) {
+            const contents = document.querySelectorAll('.content > div');
+            contents.forEach(content => content.classList.add('hidden'));
+            document.getElementById(optionId).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

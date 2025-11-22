@@ -1,0 +1,78 @@
+@import url('login.css');
+
+.toggle-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.eye-icon {
+    width: 15px;
+    height: 15px;
+    margin: 0px;
+    cursor: pointer;
+    grid-row: 1;
+    grid-column: 2;
+    padding-right: 10px;
+}
+
+#password-field {
+    display: grid;
+    grid-template-columns: 2fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+}
+
+#pwd {
+    grid-column: 1/5;
+    grid-row: 1;
+}
+.input-error {
+    border: 2px solid red;
+  }
+#snackbar {
+    visibility: hidden;
+    width: 80%;
+    max-width: 250px;
+    min-width: 200px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    bottom: 30px;
+    font-size: 16px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
