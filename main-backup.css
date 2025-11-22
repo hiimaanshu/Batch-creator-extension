@@ -26,44 +26,17 @@ h1 {
   /* Use the custom font */
 }
 
-
 .content-container {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: row; /* Forces side-by-side */
   justify-content: flex-start;
+  /* Align items to the start */
   gap: 6px;
-  overflow: hidden; /* Prevents layout blowout */
+  flex-direction: row;
+  /* Keep the order as is */
 }
 
-/* --- SIDEBAR FIXES --- */
-.sidebar {
-  /* Rigid Sizing */
-  width: 50px;
-  min-width: 50px; /* Prevents squishing */
-  height: 100%;    /* Forces full height of the container */
-  flex-shrink: 0;  /* CRITICAL: Stops sidebar from shrinking when content grows */
-  
-  /* Visuals */
-  position: relative;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 10;
-  
-  /* Animation */
-  transition: transform 0.3s ease;
-}
-
-/* Keep your slide animation */
-.sidebar.hidden {
-  transform: translateX(70px);
-}
 .content {
   flex-grow: 1;
   /* Allow content to grow when sidebar is hidden */
@@ -77,6 +50,20 @@ h1 {
   overflow-y:scroll;
 }
 
+.sidebar {
+  position: relative;
+  border-radius: 10px;
+  width: 50px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  transition: transform 0.3s ease;
+  /* Smooth transition */
+}
 
 .sidebar-upper {
   display: flex;
@@ -127,6 +114,10 @@ hr {
 
 }
 
+.sidebar.hidden {
+  transform: translateX(70px);
+  /* Move sidebar out of view to the right */
+}
 
 .menu-icon {
   transform: scaleX(-1);
@@ -471,5 +462,3 @@ h4{
 .card .details div {
   text-align: left;
 }
-
-

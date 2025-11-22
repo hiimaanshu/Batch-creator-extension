@@ -1,4 +1,7 @@
 import { attachConfirmationDialog } from "../js/ui-injection.js";
+import { initCardView } from './cards.js';
+import { initIdManager } from './id-manager.js';
+
 function p(...messages) {
     console.log(...messages);
 }
@@ -73,10 +76,12 @@ document.querySelectorAll('.icon').forEach((icon, index) => {
             case 'batch-management':
                 url = 'batch.management.html';
                 page = "data-page";
+                initCardView();
                 break;
             case 'id-management':
                 url = 'id.management.html';
                 page = "id-management-page";
+                initIdManager();
                 break;
             case 'password-manager':
                 url = 'password.management.html';
@@ -118,7 +123,7 @@ document.querySelectorAll('.icon').forEach((icon, index) => {
 
                     if (panel !== 'settings') {
                         slider.style.display = "block";
-                        slider.style.top = `${54 + index * 60}px`;
+                        slider.style.top = `${45 + index * 60}px`;
                     }else{
                         slider.style.display = "none";
                     }
@@ -137,4 +142,3 @@ document.querySelectorAll('.icon').forEach((icon, index) => {
         }
     });
 });
-

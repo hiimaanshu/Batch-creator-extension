@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Agent</title>
+    <link rel="stylesheet" href="css/setup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="hidden"> <div class="setup-container">
+        <div class="setup-card">
+            <div class="logo-section">
+                <img src="images/logo.png" alt="India Post Logo" class="setup-logo">
+                <div class="brand-text">
+                    <h1>Agent Assistant</h1>
+                    <p>Secure Batch Management</p>
+                </div>
+            </div>
+
+            <div class="setup-form">
+                <div class="input-group">
+                    <label for="agent-id">Agent ID</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-id-badge"></i>
+                        <input type="text" id="agent-id" placeholder="DOP.MI.XXXXXX" autocomplete="off">
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="agent-name">Agency Name (Optional)</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-building"></i>
+                        <input type="text" id="agent-name" placeholder="e.g. Main Market Branch">
+                    </div>
+                </div>
+
+                <button id="save-btn" class="btn-primary-large">
+                    Get Started <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+                <p id="error-msg" class="error-message">
+                    <i class="fa-solid fa-circle-exclamation"></i> <span>Please enter a valid ID</span>
+                </p>
+            </div>
+            
+            <div class="setup-footer">
+                <p>Data is stored locally on your device.</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/setup.js"></script>
+</body>
+</html>

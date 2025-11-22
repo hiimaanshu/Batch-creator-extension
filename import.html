@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import Data</title>
+    <link rel="stylesheet" href="css/setup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Extra styles specific to Import Page */
+    .upload-area {
+        display: block; /* <--- THIS FIXES THE BOX */
+        border: 2px dashed #e0e0e0;
+        border-radius: 8px;
+        padding: 30px 20px;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        transition: 0.3s;
+        cursor: pointer;
+        background: #fafafa;
+        width: 100%; /* Ensures it takes full width */
+        box-sizing: border-box; /* Ensures padding doesn't break width */
+    }
+    
+    .upload-area:hover { border-color: var(--primary-color); background: #fff0f2; }
+    .upload-icon { font-size: 2rem; color: #ccc; margin-bottom: 10px; }
+    .file-name { font-size: 0.85rem; color: var(--text-dark); font-weight: 600; margin-top: 10px; }
+    
+    .btn-secondary {
+        background: transparent;
+        color: var(--text-light);
+        border: none;
+        font-size: 0.9rem;
+        cursor: pointer;
+        margin-top: 15px;
+        text-decoration: underline;
+    }
+    .btn-secondary:hover { color: var(--text-dark); }
+    
+    #file-input { display: none; }
+    </style>
+</head>
+<body>
+    
+    <div class="setup-container">
+        <div class="setup-card">
+            <div class="logo-section">
+                <div class="brand-text">
+                    <h1>Import Accounts</h1>
+                    <p>Let's populate your dashboard.</p>
+                </div>
+            </div>
+
+            <div class="setup-form">
+                <p style="font-size: 0.85rem; color: #666; margin-bottom: 20px; line-height: 1.4;">
+                    1. Go to the India Post "List of Transactions" page.<br>
+                    2. Save the page (Right Click -> Save As -> Webpage, Complete).<br>
+                    3. Upload the <b>.html</b> file here.
+                </p>
+
+                <label for="file-input" class="upload-area" id="drop-zone">
+                    <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                    <div id="upload-text">Click to Select HTML File</div>
+                    <div id="file-name-display" class="file-name"></div>
+                </label>
+                <input type="file" id="file-input" accept=".html,.htm">
+
+                <button id="import-btn" class="btn-primary-large" disabled>
+                    Import Data <i class="fa-solid fa-file-import"></i>
+                </button>
+                
+                <button id="skip-btn" class="btn-secondary">Skip for now (I'll do it later)</button>
+
+                <p id="status-msg" class="error-message" style="color: var(--text-dark); background: #e3f2fd;">
+                    <i class="fa-solid fa-spinner fa-spin"></i> <span>Processing...</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/import.js"></script>
+</body>
+</html>

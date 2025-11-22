@@ -1,0 +1,190 @@
+
+/* Toolbar Area */
+.cards-toolbar {
+    padding: 15px 20px;
+    background: white;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    min-height: 60px;
+}
+
+/* Search Bar Styling */
+.search-wrapper {
+    position: relative;
+    width: 65%;
+    display: flex;
+    align-items: center;
+}
+
+.search-wrapper i {
+    position: absolute;
+    left: 15px;
+    color: #999;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.search-wrapper input {
+    width: 100%;
+    padding: 10px 15px 10px 40px; /* Space for icon */
+    border: 1px solid #e0e0e0;
+    border-radius: 25px; /* Pill shape */
+    font-size: 14px;
+    background: #f4f6f8;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.search-wrapper input:focus {
+    background: white;
+    border-color: #7A59FA;
+    box-shadow: 0 0 0 3px rgba(122, 89, 250, 0.1);
+}
+
+/* Count Badge */
+.stat-badge {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    background: #eee;
+    padding: 6px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+.cards-grid {
+    flex: 1;
+    min-height: 0; /* CRITICAL: Allows the flex item to shrink & scroll */
+    overflow-y: auto; /* Enables scrolling ONLY for this div */
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 15px;
+    align-content: start;
+}
+
+/* 2. The Card Itself */
+
+/* --- Customer Card Styles (Add to main.css) --- */
+
+/* The Container */
+.cards-grid-container {
+    padding: 10px;
+    overflow-y: auto;
+    /* Calculate height to fill remaining space below header */
+    height: calc(100% - 50px); 
+    display: grid;
+    /* Auto-fit columns: min 220px width */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.customer-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #ececec;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.customer-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(122, 89, 250, 0.1); /* Soft purple glow */
+    border-color: #7A59FA;
+}
+
+/* Top Section: Identity */
+.card-top {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.customer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 65%; /* Prevents overlap with amount */
+}
+
+.customer-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2c3e50;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.customer-acc {
+    font-size: 12px;
+    color: #95a5a6;
+    font-family: 'Consolas', monospace;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.customer-acc i { font-size: 10px; opacity: 0.7; }
+
+/* The Amount Badge */
+.customer-amount {
+    font-size: 14px;
+    font-weight: 700;
+    color: #27ae60; /* Financial Green */
+    background-color: #eafaf1;
+    padding: 5px 10px;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+}
+
+/* Divider */
+.card-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #f0f0f0, transparent);
+    margin: 0 15px;
+}
+
+/* Bottom Section: Stats */
+.card-bottom {
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fafbfc; /* Subtle contrast for footer */
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.stat-box.right {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.stat-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #b0bec5;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: #34495e;
+}
+
+.stat-value.highlight {
+    color: #D7263D; /* Red for Dates */
+}

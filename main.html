@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <title>Batch Creator</title>
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/cards.css">
 </head>
 
 <body>
@@ -14,8 +15,8 @@
         <h1>Batch Creator</h1>
         <img id="menu-show" src="images/sidebar.png" alt="Avatar" class="menu-icon">
       </div>
-      <div class= "pages">
-        <div id="home-page" >
+      <div class="pages">
+        <div id="home-page">
           <div class="content-body">
             <div class="batch-selector">
               <div class="controls">
@@ -42,80 +43,48 @@
           </div>
 
         </div>
-        <div id="data-page" class="hide">
-          <div class="id-head">
-            <h4>User Data</h4>
-            <i class="fas fa-plus"></i>
+
+        <div id="data-page" class="cards-page-container hide">
+
+          <div class="cards-toolbar">
+            <div class="search-wrapper">
+              <i class="fas fa-search"></i>
+              <input type="text" id="card-search" placeholder="Search accounts...">
+            </div>
+            <div class="stat-badge"><span id="total-users">0</span> Acc</div>
           </div>
+
+          <div id="cards-container" class="cards-grid"></div>
+
+          <div id="no-data-msg" class="empty-placeholder hide">
+            <p>No data found.</p>
+          </div>
+          
         </div>
+
         <div id="id-management-page" class="hide">
           <div class="id-head">
             <h4>ID Manager</h4>
-            <i class="fas fa-plus"></i>
+            <i class="fas fa-plus" id="add-id-btn" style="cursor: pointer;"></i>
           </div>
-          <!-- <button class="addID-button">
+
+          <div id="id-list-container"></div>
+        </div>
+
+      </div>
+      <div id="password-management-page" class="hide">
+        <div class="id-head">
+          <h4>Password management</h4>
           <i class="fas fa-plus"></i>
-          <p>Click here to add a new ID</p>
-        </button> -->
-          <div class="card">
-            <div class="id-head">
-              <h1 id="serial">#1</h1>
-              <p class="id" id="id">DOP.MII750390100043</p>
-            </div>
-
-            <div class="details">
-              <div>Total Amount: <span id="amount">56,500</span></div>
-              <div>Total Accounts: <span id="accounts">26</span></div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="id-head">
-              <h1 id="serial">#1</h1>
-              <p class="id" id="id">DOP.MII750390100043</p>
-            </div>
-
-            <div class="details">
-              <div>Total Amount: <span id="amount">56,500</span></div>
-              <div>Total Accounts: <span id="accounts">26</span></div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="id-head">
-              <h1 id="serial">#1</h1>
-              <p class="id" id="id">DOP.MII750390100043</p>
-            </div>
-
-            <div class="details">
-              <div>Total Amount: <span id="amount">56,500</span></div>
-              <div>Total Accounts: <span id="accounts">26</span></div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="id-head">
-              <h1 id="serial">#1</h1>
-              <p class="id" id="id">DOP.MII750390100043</p>
-            </div>
-
-            <div class="details">
-              <div>Total Amount: <span id="amount">56,500</span></div>
-              <div>Total Accounts: <span id="accounts">26</span></div>
-            </div>
-          </div>
-
-        </div>
-        <div id="password-management-page" class="hide">
-          <div class="id-head">
-            <h4>Password management</h4>
-            <i class="fas fa-plus"></i>
-          </div>
-        </div>
-        <div id="database-management-page" class="hide">
-          <div class="id-head">
-            <h4>Manage Database</h4>
-            <i class="fas fa-plus"></i>
-          </div>
         </div>
       </div>
+      <div id="database-management-page" class="hide">
+        <div class="id-head">
+          <h4>Manage Database</h4>
+          <i class="fas fa-plus"></i>
+        </div>
+      </div>
+
 
 
     </div>
@@ -136,10 +105,14 @@
         <img id="logout" src="images/logout.png" alt="Avatar" class="confirm">
       </div>
     </span>
-
   </div>
 
+  </div>
+  
+
+
   <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/cards.js"></script>
 </body>
 
 </html>
